@@ -18,17 +18,16 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/addcar", (req, res) => {
+  res.render("addcar");
+});
+
 router.post("/addcar", (req, res) => {
   var carData = req.body;
   let newCarEntry = new Car(carData);
-  newCarEntry
-    .save()
-    .then(savedCar => {
-      res.send(savedCar);
-    })
-    .catch(err => {
-      res.status(500).send(err);
-    });
+  newCarEntry.save().then(() => {
+    res.redirect("/");
+  });
 });
 
 router.put("/updatecar/:id", (req, res) => {

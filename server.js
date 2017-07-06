@@ -19,6 +19,7 @@ app.use(express.static("views"));
 // --- middleware:
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // --- routing:
 
