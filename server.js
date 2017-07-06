@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const mustacheExpress = require("mustache-express");
 const app = express();
 const bodyParser = require("body-parser");
 mongoose.Promise = require("bluebird");
@@ -8,16 +9,16 @@ const port = process.env.PORT || 9000;
 const dbURL = "mongodb://localhost:27017/classicCars";
 const router = require("./routing/routes.js");
 
+// --- View Engine:
+
+app.engine("mustache", mustacheExpress());
+app.set("view engine", "mustache");
+app.set("views", "./views");
+app.use(express.static("views"));
+
 // --- middleware:
 
 app.use(bodyParser.json());
-
-mongoose.connect(dbURL).then((err, db) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log("Connected to the classicCars DB!");
-});
 
 // --- routing:
 

@@ -1,11 +1,21 @@
 const express = require("express");
 const router = express.Router();
 const Car = require("../models/Car");
+const mongoose = require("mongoose");
+const dbURL = "mongodb://localhost:27017/classicCars";
+
+// database connection:
+
+mongoose.connect(dbURL);
 
 router.get("/", (req, res) => {
-  Car.find().then(foundCars => {
-    res.send(foundCars);
-  });
+  Car.find()
+    .then(foundCars => {
+      res.render("index", { userListing: foundCars });
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
 });
 
 router.post("/addcar", (req, res) => {

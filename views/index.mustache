@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--<link href="css/style.css" rel="stylesheet">-->
+</head>
+
+<body>
+	<h1>Welcome to the Classic Car Repository!</h1>
+	<h2>Listings in your Database:</h2>
+	{{#userListing}}
+	<div>
+		<h4>{{year}} {{make}} {{model}} <span><a href="/updatecar/{{_id}}">Update this listing</a></h4>
+		<p>VIN #: {{vinNumber}}</p>
+		<p>Body style: {{body.bodystyle}}</p>
+		<p>Color: {{body.color}}</p>
+		<p>Engine: {{drivetrain.engine}}</p>
+		<p>Transmission: {{drivetrain.transmission}} {{drivetrain.wheelDrive}}</p>
+	</div>
+	{{/userListing}}
+	<a href="/addcar">
+		<p>Add a vehicle to database</p>
+	</a>
+	<a href="/updatecar">
+		<p>Update an existing listing</p>
+	</a>
+</body>
+
+</html>

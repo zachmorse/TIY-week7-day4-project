@@ -41,11 +41,13 @@ var carSchema = new Schema({
   },
   drivetrain: {
     engine: {
-      type: String
+      type: String,
+      default: "unknown"
     },
     transmission: {
       type: String,
-      enum: ["automatic", "manual"]
+      enum: ["automatic", "manual", "unknown"],
+      default: "unknown"
     },
     wheelDrive: {
       type: String,
