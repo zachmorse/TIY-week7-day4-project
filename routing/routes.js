@@ -30,10 +30,16 @@ router.post("/addcar", (req, res) => {
   });
 });
 
-router.put("/updatecar/:id", (req, res) => {
+router.get("/updatecar/:id", (req, res) => {
+  Car.findById(req.params.id).then(foundCar => {
+    res.render("update", { userListing: foundCar });
+  });
+});
+
+router.post("/updatecar/:id", (req, res) => {
   Car.updateOne({ _id: req.params.id }, req.body)
     .then(updatedCar => {
-      res.send(updatedCar);
+      res.redirect("/");
     })
     .catch(err => {
       res.status(500).send(err);

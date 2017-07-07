@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--<link href="css/style.css" rel="stylesheet">-->
+</head>
+
+<body>
+
+	<h1>Edit listing:</h1>
+	{{#userListing}}
+	<form action="/updatecar/{{_id}}" method="post">
+
+		<label for="make">Make:</label>
+		<input type="text" , name="make" value="{{make}}">
+		<br><br>
+		<label for="model">Model:</label>
+		<input type="text" , name="model" value="{{model}}">
+		<br><br>
+		<label for="year">Year:</label>
+		<input type="text" , name="year" value="{{year}}">
+		<br><br>
+		<label for="vin">VIN:</label>
+		<input type="text" , name="vinNumber" value="{{vinNumber}}">
+		<br><br>
+
+		<label forid="bodyselect">Body Style:</label>
+		<select id="bodyselect" name="body.bodystyle" value="{{body.bodystyle}}">
+			<option value="{{body.bodystyle}}" disabled selected>{{body.bodystyle}}</option>
+			<option value="sedan">sedan</option>
+			<option value="coupe">coupe</option>	
+			<option value="convertible">convertible</option>
+			<option value="wagon">station wagon</option>
+			<option value="truck">truck</option>
+			<option value="van">van</option>
+			<option value="unknown">unknown</option>
+		</select>
+		<br><br>
+
+		<label for="color">Color:</label>
+		<input type="text" , name="body.color" value="{{body.color}}">
+		<br><br>
+
+		<label for="drivetrain.engine">Engine type:</label>
+		<input type="text" , name="drivetrain.engine" value="{{drivetrain.engine}}">
+		<br><br>
+		<label forid="transmissionselect">Transmission:</label>
+		<select id="transmissionselect" name="drivetrain.transmission" value="{{drivetrain.transmission}}">
+			<option value="{{drivetrain.transmission}}" disabled selected>{{drivetrain.transmission}}</option>
+			<option value="automatic">Automatic</option>
+			<option value="manual">Manual</option>	
+		</select>
+		<br><br>
+		<label forid="driveselect">Drivetrain:</label>
+		<select id="driveselect" name="drivetrain.wheelDrive" value="{{drivetrain.wheelDrive}}">
+			<option value="{{drivetrain.wheelDrive}}"disabled selected>{{drivetrain.wheelDrive}}</option>
+			<option value="2WD">2WD</option>
+			<option value="4WD">4WD</option>
+			<option value="AWD">AWD</option>
+		</select>
+		<br><br>
+		<input type="submit" value="done">
+	</form>
+	{{/userListing}}
+
+</body>
+
+</html>
