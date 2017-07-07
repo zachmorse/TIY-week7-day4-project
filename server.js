@@ -21,11 +21,11 @@ app.use(express.static("views"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// --- routing:
+// --- routing section
 
 app.use("/", router);
 
-// --- listener:
+// --- listener section
 
 app.listen(port, () => {
   console.log(`Server is connected at port ${port}.`);

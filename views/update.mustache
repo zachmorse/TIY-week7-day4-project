@@ -5,14 +5,14 @@
 	<title></title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="./styles.css" rel="stylesheet">
+	<link href="/styles.css" rel="stylesheet">
 </head>
 
 <body>
 
 	<h1>Edit listing:</h1>
 	{{#userListing}}
-	<form action="/updatecar/{{_id}}" method="post">
+	<form action="/updatecar/{{_id}}" method="post" class="updateListing">
 
 		<label for="make">Make:</label>
 		<input type="text" , name="make" value="{{make}}">
