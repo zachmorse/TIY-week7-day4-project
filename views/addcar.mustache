@@ -5,12 +5,12 @@
 	<title></title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--<link href="css/style.css" rel="stylesheet">-->
+	<link href="./styles.css" rel="stylesheet">
 </head>
 
 <body>
 	<h1>Add a new listing:</h1>
-	<form action="/addcar" method="post">
+	<form action="/addcar" method="post" class="addForm">
 		<label for="make">Make:</label>
 		<input type="text" , name="make" placeholder="required">
 		<br><br>
@@ -62,6 +62,7 @@
 		<input type="submit" value="Add to database">
 
 	</form>
+	<a href="/">Back</a>
 </body>
 
 </html>

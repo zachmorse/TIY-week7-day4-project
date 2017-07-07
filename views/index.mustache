@@ -5,30 +5,30 @@
 	<title></title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--<link href="css/style.css" rel="stylesheet">-->
+	<link href="./styles.css" rel="stylesheet">
 </head>
 
 <body>
-	<h1>Welcome to the Classic Car Repository!</h1>
+
+	<h1 class="pageHeadline">Welcome to the Classic Car Repository!</h1>
 	<h2>Listings in your Database:</h2>
-	{{#userListing}}
-	<div>
-		<h4>{{year}} {{make}} {{model}}</h4>
-		<p>VIN #: {{vinNumber}}</p>
-		<p>Body style: {{body.bodystyle}}</p>
-		<p>Color: {{body.color}}</p>
-		<p>Engine: {{drivetrain.engine}}</p>
-		<p>Transmission: {{drivetrain.transmission}} {{drivetrain.wheelDrive}}</p>
-		<a href="/updatecar/{{_id}}">Update this listing</a>
-		<a href="/deletecar/{{_id}}">Delete this listing</a>
+	<p>
+		<a href="/addcar">Add a vehicle to database</a>
+	</p>
+	<div class="listingContainer">
+		{{#userListing}}
+		<div class="individualContainer">
+			<h4>{{year}} {{make}} {{model}}</h4>
+			<p>VIN #{{vinNumber}}</p>
+			<p>Body style: {{body.bodystyle}}</p>
+			<p>Color: {{body.color}}</p>
+			<p>Engine: {{drivetrain.engine}}</p>
+			<p>Transmission: {{drivetrain.transmission}} {{drivetrain.wheelDrive}}</p>
+			<a href="/updatecar/{{_id}}">Update listing</a><br>
+			<a href="/deletecar/{{_id}}">Delete listing</a>
+		</div>
+		{{/userListing}}
 	</div>
-	{{/userListing}}
-	<a href="/addcar">
-		<p>Add a vehicle to database</p>
-	</a>
-	<a href="/updatecar">
-		<p>Update an existing listing</p>
-	</a>
 </body>
 
 </html>
