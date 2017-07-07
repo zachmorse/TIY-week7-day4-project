@@ -46,10 +46,10 @@ router.post("/updatecar/:id", (req, res) => {
     });
 });
 
-router.delete("/deletecar/:id", (req, res) => {
+router.get("/deletecar/:id", (req, res) => {
   Car.deleteOne({ _id: req.params.id })
     .then(() => {
-      res.send(`entry #${req.params.id} deleted from database`);
+      res.redirect("/");
     })
     .catch(err => {
       res.status(500).send(err);
